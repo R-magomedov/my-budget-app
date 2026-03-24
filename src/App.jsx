@@ -1,12 +1,17 @@
-import { useContext } from "react"
-import { TransactionContext } from "./context/TransactionContext"
+import { useState } from "react"
+import Header from "./components/Header/Header"
 
 function App() {
-  const { transactions } = useContext(TransactionContext)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
   return (
     <>
-      <h1>Мой бюджет</h1>
-      {console.log(transactions)}
+      < Header onOpen={openModal}/>
+      {isModalOpen && <div>Модальное окно открыто</div>}
     </>
   )
 }
