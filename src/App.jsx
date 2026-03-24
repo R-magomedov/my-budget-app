@@ -1,5 +1,7 @@
+import './styles'
 import { useState } from "react"
 import Header from "./components/Header/Header"
+import AddTransactionModal from './components/AddTransactionModal/AddTransactionModal'
 
 function App() {
 
@@ -7,11 +9,14 @@ function App() {
   const openModal = () => {
     setIsModalOpen(true)
   }
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <>
-      < Header onOpen={openModal}/>
-      {isModalOpen && <div>Модальное окно открыто</div>}
+      < Header onOpenModal={openModal}/>
+      {isModalOpen && < AddTransactionModal onCloseModal={closeModal}/>}
     </>
   )
 }

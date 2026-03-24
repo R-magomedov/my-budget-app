@@ -1,0 +1,89 @@
+.modal {
+    margin-inline: auto;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+
+    .formGroup {
+        display: flex;
+        flex-direction: column;
+      
+        label {
+          margin-bottom: 6px;
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      
+        input {
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: var(--border-radius);
+          outline: none;
+          &:focus { border-color: #ddd; }
+          &:hover {
+            border-color: #000000;
+          }
+        }
+    }
+      
+    .radioGroup {
+        display: flex;
+        gap: 10px;
+        margin: 15px 0 25px;
+      
+        label {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: var(--border-radius);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-weight: 500;
+      
+          input {
+            display: none; // прячем стандартный кружочек
+          }
+      
+          &:hover {
+            border-color: #000000;
+          }
+        }
+      
+        .activeIncome {
+          background-color: #00ba06;
+          color: #ffffff;
+          &:hover {
+            background-color: #00a105;
+          }
+        }
+      
+        .activeExpense {
+          background-color: #cb0000;
+          color: #ffffff;
+          &:hover {
+            background-color: #b4000f;
+          }
+        }
+    
+    }
+    
+    button {
+        width: 100%;
+        margin-block-end: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #ffffff;
+        border-radius: var(--border-radius);
+        outline: none;
+        &:focus { border-color: #ddd; }
+        &:hover { border-color: #000000; }
+    }
+
+}
