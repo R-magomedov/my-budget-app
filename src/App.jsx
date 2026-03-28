@@ -2,6 +2,7 @@ import './styles'
 import { useState } from "react"
 import Header from "./components/Header/Header"
 import AddTransactionModal from './components/AddTransactionModal/AddTransactionModal'
+import TransactionList from './components/TransactionList/TransactionList'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <>
       < Header onOpenModal={openModal}/>
       {isModalOpen && < AddTransactionModal onCloseModal={closeModal}/>}
+      < TransactionList />
     </>
   )
 }

@@ -1,0 +1,40 @@
+.transactionItem__details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: var(--border-black);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    &:hover {
+        background-color: var(--color-gray-2);
+    }
+}
+
+.transactionItem__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    font-size: 32px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: var(--border-radius);
+    color: #757575;
+    transition: all 0.2s ease;
+    background-color: white;
+    padding: 0;
+    &:hover {
+        background-color: var(--color-black);;
+    }
+}
+
+.income {
+    color: var(--color-green);
+    font-weight: 500;
+}
+
+.expense {
+    color: var(--color-red);
+    font-weight: 500;
+}

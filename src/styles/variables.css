@@ -1,16 +1,13 @@
 :root {
   --color-white: #FFFFFF;
   --color-black: #000000;
+  --color-gray: #ddd;
+  --color-gray-2: #F5F5F5;
+  --color-green: #00ba06;
+  --color-red: #cb0000;
 
-  --color-dark-1: #1E1E1E;
-  --color-dark-2: #2C2C2C;
-
-  --color-gray-1: #F5F5F5;
-  --color-gray-2: #D9D9D9;
-  --color-gray-3: #B3B3B3;
-  --color-gray-4: #757575;
-
-  --border: 1px solid var(--color-gray-2);
+  --border-black: 1px solid var(--color-black);
+  --border-gray: 1px solid var(--color-gray);
   --border-radius: 8px;
 
   --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
