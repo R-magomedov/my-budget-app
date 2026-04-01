@@ -3,22 +3,42 @@ import { TransactionContext } from "../../context/TransactionContext"
 import TransactionItem from "../TransactionItem/TransactionItem"
 import styles from './TransactionList.module.scss'
 
-
 const TransactionList = () => {
+    const formattedDate = (dateString) => new Date(dateString).toLocaleDateString('ru-RU', {
+        day: 'numeric',
+        month: 'long'
+    })
 
     const { transactions } = useContext(TransactionContext)
     
-    
+    const grouped = transactions.reduce((acc, transaction) => {
+        const date = transaction.date
+        
+        if(!acc[date]) {
+            acc[date] = []
+        }
+        acc[date].push(transaction)
+        
+        return acc
+    }, {})
+
+    const dates = Object.keys(grouped)
+
+
     return (
-        <ul className={styles.transactionList}> 
-            {transactions.map((transaction) => (
-                    < TransactionItem
-                        key = {transaction.id}
-                        transaction = {transaction}
-                    />
+        <ul className={styles.list}> 
+            {dates.map(date => (
+                <li key={date} className={styles.dateGroup}>
+                    <time className={styles.dateHeader}>{formattedDate(date)}</time>
+                    <ul className={styles.transactions}>
+                        {grouped[date].map(transaction => (
+                            < TransactionItem key={transaction.id} transaction={transaction} /> 
+                        ))}
+                    </ul>
+                </li>
             ))}
         </ul>
-  )
+    )
 }
 
 export default TransactionList
