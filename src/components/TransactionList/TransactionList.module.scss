@@ -14,7 +14,7 @@
 .dateHeader {
     display: block;
     padding: 12px 16px;
-    background-color: var(--color-gray-2);
+    background-color: var(--color-gray);
     font-size: 16px;
     font-weight: 500;
     color: var(--color-black);
@@ -22,4 +22,10 @@
 
 .transactions {
     font-size: 14px;
+}
+
+.emptyList {
+    padding: 24px;
+    text-align: center;
+    color: var(--color-gray-3);
 }

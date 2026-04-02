@@ -17,7 +17,7 @@ const TransactionItem = ({
         <li className={styles.item}>
             <div className={styles.title}>{title}</div>
             <div className={`${styles.amount} ${color}`}>
-                {type === 'income' ? '+' : '-'}{amount}
+                {type === 'income' ? '+' : '-'}{amount.toLocaleString('ru-RU')} <span className={styles.currency}>₽</span>
             </div>
             <button 
                 onClick={() => deleteTransaction(id)} 

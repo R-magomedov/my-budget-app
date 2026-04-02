@@ -22,8 +22,13 @@ const TransactionList = () => {
         return acc
     }, {})
 
-    const dates = Object.keys(grouped)
+    const dates = Object.keys(grouped).toSorted((a, b) => new Date(b) - new Date(a))
 
+
+
+    if(dates.length === 0) {
+        return <div className={styles.emptyList}>Нет транзакций</div>
+    }
 
     return (
         <ul className={styles.list}> 
