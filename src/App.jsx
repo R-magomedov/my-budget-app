@@ -6,7 +6,7 @@ import TransactionList from './components/TransactionList/TransactionList'
 
 function App() {
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [ isModalOpen, setIsModalOpen ] = useState(false)
   const openModal = () => {
     setIsModalOpen(true)
   }

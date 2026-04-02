@@ -32,7 +32,7 @@ const BalanceBlock = () => {
             </div>
             <div className={styles.expense}>
                 <span className={styles.label}>Расход</span>
-                <span className={styles.amount}>-{expense} ₽</span>
+                <span className={styles.amount}>{expense} ₽</span>
             </div>
         </div>
     </div>
