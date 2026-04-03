@@ -1,3 +1,17 @@
 body {
     padding: 0 3em 10em;
 }
+
+.btn { 
+    border: var(--border-black);
+    border-radius: var(--border-radius);
+    padding: 5px 10px;
+    background-color: var(--color-white);
+    transition: all var(--transition-duration) ease;
+    font-size: 14px;
+}
+
+.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
