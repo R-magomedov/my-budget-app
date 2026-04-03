@@ -23,16 +23,16 @@ const BalanceBlock = () => {
     <div className={styles.balanceBlock}>
         <div className={styles.main}>
             <span className={styles.label}>Баланс</span>
-            <span className={styles.amount}>{balance} ₽</span>
+            <span className={styles.amount}>{balance.toLocaleString('ru-RU')} ₽</span>
         </div>
         <div className={styles.details}>               
             <div className={styles.income}>
                 <span className={styles.label}>Доход</span>
-                <span className={styles.amount}>+{income} ₽</span>
+                <span className={styles.amount}>+{income.toLocaleString('ru-RU')} ₽</span>
             </div>
             <div className={styles.expense}>
                 <span className={styles.label}>Расход</span>
-                <span className={styles.amount}>{expense} ₽</span>
+                <span className={styles.amount}>{expense.toLocaleString('ru-RU')} ₽</span>
             </div>
         </div>
     </div>
