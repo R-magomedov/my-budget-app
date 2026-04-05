@@ -1,0 +1,32 @@
+.input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    border: 1px solid var(--color-gray-1, #ddd);
+    border-radius: var(--border-radius);
+    background-color: white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 16px;
+    transition: all 0.2s ease;
+    
+    &::placeholder {
+        color: var(--color-gray-3, #999);
+    }
+    
+    &:hover {
+        border-color: var(--color-gray-3, #bdbdbd);
+    }
+    
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary, #4a90e2);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}

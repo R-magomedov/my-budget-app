@@ -1,5 +1,24 @@
-.btnGroup {
+.container {
     display: flex;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
     margin: 15px 0 25px;
+}
+
+.btnGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btnGroup {
+        width: 100%;
+    }
 }

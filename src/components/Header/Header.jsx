@@ -4,10 +4,10 @@ import styles from './Header.module.scss'
 const Header = ({onOpenModal}) => {
   return (
     <div className={styles.header}>
-        <h1>💰 Мой бюджет</h1>
+        <h1>Мой бюджет</h1>
         < BalanceBlock />
-        <button onClick={onOpenModal}>Добавить</button>
-    </div>
+        <button onClick={onOpenModal}>Добавить транзакцию</button>
+    </div> 
     
   )
 }

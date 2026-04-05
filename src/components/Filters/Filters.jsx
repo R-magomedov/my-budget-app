@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from './Filters.module.scss'
+import SearchTransactionsForm from '../SearchTransactionsForm/SearchTransactionsForm'
 
-const Filters = ({ filter, setFilter}) => {
+
+const Filters = ({ filter, setFilter, searchQuery, setSearchQuery}) => {
   return (
-    <div className={styles.btnGroup}>
+    <div className={styles.container}>
+      <div className={styles.btnGroup}>
         <button 
             type='button' 
             className={filter === 'all' ? 'active' : ''}
@@ -24,7 +27,11 @@ const Filters = ({ filter, setFilter}) => {
             onClick={() => setFilter('expense')}
         >Расходы
         </button>
+      </div>
+
+      < SearchTransactionsForm searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
     </div>
+    
   )
 }
 

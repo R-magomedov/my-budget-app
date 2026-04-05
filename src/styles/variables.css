@@ -6,6 +6,7 @@
   --color-gray-3: #454343;
   --color-green: #00ba06;
   --color-red: #cb0000;
+  --color-primary: #4a90e2;
 
   --border-black: 1px solid var(--color-black);
   --border-gray: 1px solid var(--color-gray);

@@ -3,7 +3,7 @@ import { TransactionContext } from "../../context/TransactionContext"
 import TransactionItem from "../TransactionItem/TransactionItem"
 import styles from './TransactionList.module.scss'
 
-const TransactionList = ({ filter }) => {
+const TransactionList = ({ filter, searchQuery}) => {
     const formattedDate = (dateString) => new Date(dateString).toLocaleDateString('ru-RU', {
         day: 'numeric',
         month: 'long'
@@ -11,10 +11,17 @@ const TransactionList = ({ filter }) => {
 
     const { transactions } = useContext(TransactionContext)
 
-    const filteredTransactions = 
-        filter === 'all' 
-            ? transactions 
-            : transactions.filter(transaction => transaction.type === filter)
+    const clearSearchQuery = searchQuery.trim().toLowerCase()
+
+    const filteredTransactions = transactions
+        .filter(transaction => {
+            if(filter === 'all') return true
+            return transaction.type === filter
+        })
+        .filter(transaction => {
+            if(clearSearchQuery.length === 0) return true
+            return transaction.title.toLowerCase().includes(clearSearchQuery)
+        })
     
     const grouped = filteredTransactions.reduce((acc, transaction) => {
         const date = transaction.date
