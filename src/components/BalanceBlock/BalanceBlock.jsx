@@ -1,22 +1,24 @@
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
 import { TransactionContext } from "../../context/TransactionContext"
 import styles from './BalanceBlock.module.scss'
 
 const BalanceBlock = () => {
     const { transactions } = useContext(TransactionContext)
 
-    const stats = transactions.reduce((acc, transaction) => {
-        
-        if (transaction.type === 'income') {
-            acc.income += transaction.amount
-            acc.balance += transaction.amount
-        } else {
-            acc.expense += transaction.amount
-            acc.balance -= transaction.amount
-        }
-        
-        return acc
-    }, { income: 0, expense: 0, balance: 0 })
+    const stats = useMemo(() => 
+        transactions.reduce((acc, transaction) => {
+            if (transaction.type === 'income') {
+                acc.income += transaction.amount
+                acc.balance += transaction.amount
+            } else {
+                acc.expense += transaction.amount
+                acc.balance -= transaction.amount
+            }
+            return acc
+        }, { income: 0, expense: 0, balance: 0 })
+    , [transactions])
+
+
     const { income, expense, balance } = stats
     
   return (

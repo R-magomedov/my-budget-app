@@ -24,9 +24,11 @@
   border-radius: var(--border-radius);
 
     .formGroup {
+        
         display: flex;
         flex-direction: column;
-      
+
+    
         label {
           margin-bottom: 6px;
           font-size: 0.9rem;
@@ -34,6 +36,7 @@
         }
       
         input {
+          position: relative;
           padding: 10px;
           border: var(--border-gray);
           border-radius: var(--border-radius);
@@ -41,6 +44,9 @@
           &:focus { border-color: var(--color-gray); }
           &:hover {
             border-color: var(--color-black);
+          }
+          &.isInvalid {
+            border-color: red;
           }
         }
     }
@@ -100,5 +106,11 @@
         &:focus { border-color: var(--color-gray); }
         &:hover { border-color: var(--color-black); }
     }
+}
 
+.error {
+  top: 100%;
+  left: 0;
+  color: red;
+  font-size: 12px;
 }

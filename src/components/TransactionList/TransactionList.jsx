@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
 import { TransactionContext } from "../../context/TransactionContext"
 import TransactionItem from "../TransactionItem/TransactionItem"
 import styles from './TransactionList.module.scss'
@@ -11,17 +11,21 @@ const TransactionList = ({ filter, searchQuery}) => {
 
     const { transactions } = useContext(TransactionContext)
 
-    const clearSearchQuery = searchQuery.trim().toLowerCase()
+    const normalizedQuery = searchQuery.trim().toLowerCase()
 
-    const filteredTransactions = transactions
+    const hasSearchQuery = normalizedQuery.length > 0
+
+    const filteredTransactions = useMemo(() => {
+        return transactions
         .filter(transaction => {
             if(filter === 'all') return true
             return transaction.type === filter
         })
         .filter(transaction => {
-            if(clearSearchQuery.length === 0) return true
-            return transaction.title.toLowerCase().includes(clearSearchQuery)
+            if(!hasSearchQuery) return true
+            return transaction.title.toLowerCase().includes(normalizedQuery)
         })
+    }, [transactions, filter, normalizedQuery])
     
     const grouped = filteredTransactions.reduce((acc, transaction) => {
         const date = transaction.date
@@ -37,6 +41,10 @@ const TransactionList = ({ filter, searchQuery}) => {
     const dates = Object.keys(grouped).toSorted((a, b) => new Date(b) - new Date(a))
 
     if(dates.length === 0) {
+        if(hasSearchQuery) {
+            return <div className={styles.emptyList}>Ничего не найдено</div>
+        }
+
         return <div className={styles.emptyList}>Нет транзакций</div>
     }
 

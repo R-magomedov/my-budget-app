@@ -12,10 +12,27 @@ const AddTransactionModal = ({onCloseModal}) => {
         type: 'expense',        
     })
 
+    const [ errors, setErrors ] = useState({
+        title: '',
+        amount: '',
+        date: '',
+    })
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!formData.title || !formData.amount || !formData.date) {
-            alert('Заполните все поля')
+        const newError = {
+            title: '',
+            amount: '',
+            date: '',
+        }
+
+        if (!formData.title) newError.title = 'Введите название'
+        if (!formData.amount) newError.amount = 'введите сумму'
+        if (formData.amount <= 0) newError.amount = 'сумма должна быть больше 0'
+        if (!formData.date) newError.date = 'введите дату'
+
+        if (Object.values(newError).some(item => item)) {
+            setErrors(newError)
             return
         }
         addTransaction(formData)
@@ -66,29 +83,34 @@ const AddTransactionModal = ({onCloseModal}) => {
                     <input
                         type="text" 
                         placeholder="Название"
+                        className={errors.title ? styles.isInvalid : ''}
                         value={formData.title}
                         onChange={(e) => setFormData(prev => ({...prev, title: e.target.value}))}
                         ref={titleInputRef}
                     />   
+                    {errors.title && <span className={styles.error}>{errors.title}</span>}
                 </div>
                 <div className={styles.formGroup}>
                     <label>Сумма</label>
                     <input 
                         type="number" 
                         placeholder="Сумма" 
+                        className={errors.amount ? styles.isInvalid : ''}
                         value={formData.amount}
                         onChange={(e) => setFormData(prev => ({...prev, amount: Number(e.target.value)}))}
                     />
+                    {errors.amount && <span className={styles.error}>{errors.amount}</span>}
                 </div>
                 <div className={styles.formGroup}>
                     <label>Дата</label>
                     <input 
                         type="date" 
                         placeholder="Дата" 
+                        className={errors.date ? styles.isInvalid : ''}
                         value={formData.date}
                         onChange={(e) => setFormData(prev => ({...prev, date: e.target.value}))}
                     />
-
+                {errors.date && <span className={styles.error}>{errors.date}</span>}
                 </div>
                 
                 <div className={styles.radioGroup}>
