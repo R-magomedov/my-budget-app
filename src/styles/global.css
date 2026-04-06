@@ -1,7 +1,7 @@
 body {
     padding: 0 3em 10em;
     @media (max-width: 768px) {
-        padding: 0 1em ;
+        padding: 0 1em 2em;
       }
 }
 
