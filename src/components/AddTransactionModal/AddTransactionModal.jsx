@@ -137,11 +137,13 @@ const AddTransactionModal = ({onCloseModal}) => {
                 </div>
                 <button
                 type="submit"
+                className={styles.button}
                 >
                     Добавить
                 </button>
                 <button 
                 type="button"
+                className={styles.button}
                 onClick={onCloseModal} >
                     Отменить
                 </button>
